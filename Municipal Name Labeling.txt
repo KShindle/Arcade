@@ -1,0 +1,11 @@
+// returns a proper case municipal name with abbreviated muni type using the municipal reference layer
+var type = $feature.MUNITYP
+
+//returns abbrev depending on muni type in attributes
+var muni = IIf(type == 'TOWNSHIP', "TWP", "BORO")
+
+//adds muni name and muni type together
+var name = Concatenate([$feature.NAME, muni], ' ')
+
+//returns a proper capitalization version of name and type
+return Proper(name)
